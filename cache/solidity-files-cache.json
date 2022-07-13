@@ -1,0 +1,75 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/alpaltug/Desktop/Alp_Altug/Nokia_internship/auction_demo/contracts/auction.sol": {
+      "lastModificationDate": 1657733329838,
+      "contentHash": "e8c1a7ddebfd359c4e3207c8e42e2968",
+      "sourceName": "contracts/auction.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.3"
+      ],
+      "artifacts": [
+        "Auction"
+      ]
+    },
+    "/Users/alpaltug/Desktop/Alp_Altug/Nokia_internship/auction_demo/contracts/auctionSimple.sol": {
+      "lastModificationDate": 1657736185538,
+      "contentHash": "ef9dced4857b506ea5ea6d1c408c2ad9",
+      "sourceName": "contracts/auctionSimple.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.7.3"
+      ],
+      "artifacts": [
+        "Auction"
+      ]
+    }
+  }
+}
