@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Welcome to Auction 1.0</title>
+
+    <script type= "text/javascript">
+        async function deploy() {
+            const Auction = await ethers.getContractFactory("contracts/auction.sol:Auction");
+
+            const _auction = await Auction.deploy();
+
+            document.getElementById("test").innerHTML = _auction.address;
+        }
+    </script>
+    
+</head>
+<body>
+
+    <input type = "button" onclick= "deploy()" value= "Display" style="background-color:darkturquoise;">
+
+    <p id="test">Hello</p>
+
+    
+</body>
+</html>
