@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/alpaltug/Desktop/Alp_Altug/Nokia_internship/auction_demo/contracts/auction.sol": {
-      "lastModificationDate": 1657733329838,
-      "contentHash": "e8c1a7ddebfd359c4e3207c8e42e2968",
+      "lastModificationDate": 1658075450251,
+      "contentHash": "6ebdb2b89d89287c1917c5d1f044e57d",
       "sourceName": "contracts/auction.sol",
       "solcConfig": {
         "version": "0.7.3",

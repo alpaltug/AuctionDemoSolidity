@@ -39,6 +39,10 @@ contract Auction {
             return b;
         }
     }
+
+    function getHighestBidder() public returns(uint){
+        return bids[highestBidder];
+    }
 		
     // Function to place a bid
     function placeBid(uint currentBid) public returns(bool){
