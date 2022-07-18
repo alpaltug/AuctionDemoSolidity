@@ -1,26 +1,90 @@
 <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Auction 1.0 </title>
+        <link rel = "stylesheet" href = "style.css">
+    </head>
+    <body>
 
-<html>
-<head>
-    <title>Welcome to Auction 1.0</title>
+        <!-- Importing ethers.js -->
+       <script
+            src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+            type="application/javascript">
+        </script>
 
-    <script type= "text/javascript">
-        async function deploy() {
-            const Auction = await ethers.getContractFactory("contracts/auction.sol:Auction");
+        <script
+            src="./index.js"
+            type = "application/javascript">
+        </script>
 
-            const _auction = await Auction.deploy();
+        <nav>
+            <div class = "left">
+            Auction House 1.0
+            </div>
+            <div class = "right">
+            <span style = 'color:yellow'>Wallet: &nbsp;&nbsp;</span> <span id = "wallet">
+                <button name = "button" type = "button" 
+                    onclick = "connectWallet()"
+                    class = "navbutton">
+                    Connect
+                </button>
+            </span>
+            </div>
+        </nav>
 
-            document.getElementById("test").innerHTML = _auction.address;
-        }
-    </script>
-    
-</head>
-<body>
-
-    <input type = "button" onclick= "deploy()" value= "Display" style="background-color:darkturquoise;">
-
-    <p id="test">Hello</p>
-
-    
-</body>
-</html>
+        <div class = "flexcontainer">
+        <div>
+        <table class = "styled-table">
+            <thead>
+                <tr>
+                    <th colspan = 2>Auction Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Address</td>
+                    <td id = "cAddress" width = 400px class = "address"></td>
+                </tr>
+                <tr>
+                    <th>Highest Bid</td>
+                    <td id = "hb">Not Fetched</td>
+                </tr>
+                <tr>
+                    <th>Highest Binding Bid</td>
+                    <td id = "hbb">Not Fetched</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan = 2>
+                        <button name = "button" type = "button" 
+                        onclick = "getHighestBid()"
+                        class = "navbutton">
+                        REFRESH
+                        </button>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+        <div>
+        <table class = "styled-table">
+            <thead><tr><th colspan = 2>Interact with Contract</th></tr></thead>
+            <tbody><tr><td>
+            <form>
+                <p>Please a new bid below:</p>
+                <input type = "text" placeholder = "enter new bid" id = "currentBid" />
+            </form>
+            </td>
+            <td><button type = "button"
+                onclick = "placeBid()"
+                class = "navbutton">
+                BID
+                </button></td>
+            </tbody>
+        </table>
+        </div>
+        </div>
+        
+    </body>
+    </html>
