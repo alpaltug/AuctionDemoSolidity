@@ -1,7 +1,7 @@
-
 var userAddress;
 var provider;
 var signer;
+
 
 async function connectWallet () {
     console.log('Connect Wallet clicked');
@@ -39,7 +39,7 @@ async function connectWallet () {
 // greeterf
 //const contractAddress = "0x646Ff94436760740E185060772CEBf99dB2A54b0";
 // 20220713
-const contractAddress = "0x2f9DCb9347919c74611280b02eb41928af2A61Eb";
+const contractAddress = "0x86d97d1990bF323a56F0048D97a4e2438dBAb347";
 
 var contract;
 
@@ -47,10 +47,94 @@ async function setUpContract () {
 
     //import abi from "../abis/contract.json";
     //const contractabi = JSON.parse('../abis/contract.json'); // the ABI
-    
-    const contractABI = require("../AuctionAbi.json");
-    contractABI = JSON.parse(contractABI)
 
+    
+    
+    const contractABI = [
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "bids",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "bindingBid",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "endAuction",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getHighestBid",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getHighestBindingBid",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_bidAmt",
+            "type": "uint256"
+          }
+        ],
+        "name": "placeBid",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ];
     console.log(contractABI);
 
     //const contract = new ethers.Contract(contractAddress, contractABI, provider.getSigner()); 
@@ -65,9 +149,14 @@ async function setUpContract () {
 
 
 async function placeBid () {
-    let b = document.getElementById('currentBid').value
-    console.log(`Bidding with an amount of ${b} ...`);
 
+    generate committment
+    check if the committemnt is valid {
+      if valid r
+    }
+
+    let b = document.getElementById('bid').value
+    console.log(`Bidding with an amount ${b} ...`);
     const tx = await contract.placeBid(b);
     const txReceipt = await tx.wait();
     if (txReceipt.status !== 1) {
@@ -83,11 +172,12 @@ async function placeBid () {
     }
 }
 
+
 async function getHighestBid () {
 
     console.log('Fetching the highest bid info...');
-    const highestBid = await contract.getHighestBidder();
-    const highestBindingBid = await contract.highestBindingBid();
+    const highestBid = await contract.getHighestBid();
+    const highestBindingBid = await contract.getHighestBindingBid();
 
     console.log("The highest bid is:", highestBid);
     console.log("The highest binding bid is:", highestBindingBid);
@@ -97,4 +187,6 @@ async function getHighestBid () {
 
 
 }
+
+
 
