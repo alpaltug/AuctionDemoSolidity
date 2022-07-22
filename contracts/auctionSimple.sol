@@ -30,16 +30,32 @@ contract Auction {
     // Function to place a bid
     function placeBid (uint _bidAmt) public {
         require(item.ended == false);
-        if (_bidAmt > bids[highestBidder]) {
-            second = bids[highestBidder];
-            highestBidder = msg.sender;
-            bindingBid = second + bidIncrement;
+        bool temp = false;
+        bool temp1 = false;
+        if (bids[msg.sender] > 0) {
+            if (_bidAmt <= bids[msg.sender]) {
+                temp = true;
+            }
+            else {
+                if (highestBidder == msg.sender) {
+                    temp1 = true;
+                }
+            }
         }
-        else if (_bidAmt > second){
-            second = _bidAmt;
-            bindingBid = _bidAmt + bidIncrement;
-        }	
-        bids[msg.sender] = _bidAmt;
+        if (temp == false) {
+            if (_bidAmt > bids[highestBidder]) {
+                if (temp1 == false) {
+                    second = bids[highestBidder];
+                }
+                highestBidder = msg.sender;
+                bindingBid = second + bidIncrement;
+            }
+            else if (_bidAmt > second){
+                second = _bidAmt;
+                bindingBid = _bidAmt + bidIncrement;
+            }	
+            bids[msg.sender] = _bidAmt;
+        }
     }
 
     function endAuction() public {
@@ -47,4 +63,13 @@ contract Auction {
         item.ended = true;
     }
 
+    function getHighestBid() view public returns(uint){
+        return bids[highestBidder];
+    }
+    function getHighestBindingBid() view public returns(uint){
+        if (second == 0) {
+            return bidIncrement;
+        }
+        return second+1;
+    }
 }
