@@ -14,7 +14,7 @@ const GOERLI_PRIVATE_KEY = "a88b0ffd0cbe40d8bfa767f9184de3deba17f7cefdda663d2f79
 ETHERSAN_APIKEY = "MVJ1DYCY27MAH6QDURZ3PSQA4STK7XG8BK";
 
 module.exports = {
-  solidity: "0.7.3",
+  solidity: "0.8.0",
   networks: {
     goerli: {
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
@@ -22,6 +22,8 @@ module.exports = {
     }
   },
   etherscan: {
-    apiKey: ETHERSAN_APIKEY
+    apiKey: ETHERSAN_APIKEY,
+    gas: 2100000,
+    gasPrice: 8000000000
   }
 };

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <title>Auction 1.0 </title>
+        <title>Auction 2.0 </title>
         <link rel = "stylesheet" href = "style.css">
     </head>
     <body>
-
-
 
         <!-- Importing ethers.js -->
        <script
@@ -15,7 +13,7 @@
         </script>
 
         <script
-            src="./index.js"
+            src="./index1.js"
             type = "application/javascript">
         </script>
 
@@ -47,6 +45,10 @@
                     <th>Address</td>
                     <td id = "cAddress" width = 400px class = "address"></td>
                 </tr>
+                <tr>
+                    <th>Your bid</td>
+                    <td id = "hb">Not Fetched</td>
+                </tr>
             </tbody>
             <tfoot>
                 <tr>
@@ -58,16 +60,27 @@
                         </button>
                     </th>
                 </tr>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Address</th>
-                            <th>Bid Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableData"></tbody>
-                </table>
             </tfoot>
+            <tr>
+                <th>Winner</td>
+                <td id = "_bid">Not Fetched</td>
+            </tr>
+            <tr>
+                <th>Winning Bid</td>
+                <td id = "_winner">Not Fetched</td>
+            </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Bid Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="tableData"></tbody>
+            </table>
+        </tfoot>
+    </table>
+            </tbody>
         </table>
         </div>
         <div>
@@ -76,7 +89,8 @@
             <tbody><tr><td>
             <form>
                 <p>Please a new bid below:</p>
-                <input type = "text" placeholder = "enter new bid" id = "bid" />
+                <input type = "text" placeholder = "enter new bid" id = "b1" />
+                <input type = "text" placeholder = "enter new bid" id = "b2" />
             </form>
             </td>
             <td><button type = "button"
@@ -84,6 +98,16 @@
                 class = "navbutton">
                 BID
                 </button></td>
+                <td><button type = "button"
+                    onclick = "endAuction()"
+                    class = "navbutton">
+                    END AUCTION
+                    </button></td>
+                <td><button type = "button"
+                    onclick = "openBid()"
+                    class = "navbutton">
+                    OPENBID
+                    </button></td>
             </tbody>
         </table>
         </div>

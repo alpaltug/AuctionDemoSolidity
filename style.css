@@ -30,7 +30,7 @@ nav {
  }
  .navbutton {
     padding: 5px;
-    background-color: purple;
+    background-color: rgb(0, 128, 9);
     color: white;
  }
 
@@ -58,6 +58,11 @@ tbody th {
     color: white;
     font-weight: bold;
     padding: 5px;
+}
+table {
+    font-family: aerial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 tbody tr:nth-child(even) {
     background-color: #eee;
